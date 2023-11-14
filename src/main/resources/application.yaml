@@ -1,0 +1,25 @@
+server:
+  port: 7777
+spring:
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.jesus.jesusspring.dialect.FileMakerDialect
+#        dialect: org.hibernate.dialect.HSQLDialect
+        show_sql: true
+        format_sql: true
+    hibernate:
+      ddl-auto: none
+  datasource:
+    type: org.springframework.jdbc.datasource.SimpleDriverDataSource
+    driver-class-name: com.filemaker.jdbc.Driver
+    url: jdbc:filemaker://localhost:2399/Hello
+    username: daniel
+    password: jesusinlove0611
+  logging:
+    level:
+      org.jesus.shop: DEBUG
+      com.zaxxer.hikari: DEBUG
+      org.springframework: INFO
+      org.hibernate.SQL: DEBUG
+      org.hibernate.type: TRACE
