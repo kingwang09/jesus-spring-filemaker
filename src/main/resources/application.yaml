@@ -1,5 +1,11 @@
 server:
   port: 7777
+file-maker:
+  datasource:
+    driver-class-name: com.filemaker.jdbc.Driver
+    jdbc-url: jdbc:filemaker://localhost:2399/Hello
+    username: daniel
+    password: jesusinlove0611
 spring:
   jpa:
     properties:

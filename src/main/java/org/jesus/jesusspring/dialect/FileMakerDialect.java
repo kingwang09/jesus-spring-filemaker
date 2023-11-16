@@ -4,7 +4,11 @@ import lombok.NoArgsConstructor;
 import org.hibernate.LockMode;
 import org.hibernate.dialect.Dialect;
 import org.hibernate.dialect.identity.HSQLIdentityColumnSupport;
+import org.hibernate.dialect.pagination.AbstractLimitHandler;
+import org.hibernate.dialect.pagination.LimitHandler;
+import org.hibernate.dialect.pagination.OffsetFetchLimitHandler;
 import org.hibernate.engine.jdbc.dialect.spi.DialectResolutionInfo;
+import org.hibernate.query.spi.Limit;
 
 
 public class FileMakerDialect extends Dialect {
@@ -91,5 +95,32 @@ public class FileMakerDialect extends Dialect {
     public String getForUpdateString(String aliases) {
         return "";
     }
+
+//    @Override
+//    public LimitHandler getLimitHandler() {
+//        return new AbstractLimitHandler() {
+//            @Override
+//            public boolean supportsLimit() {
+//                return true;
+//            }
+//
+//            @Override
+//            public String processSql(String sql, Limit selection) {
+//                String soff = String.format(" offset %d rows /*?*/", selection.getFirstRow());
+//                String slim = String.format(" fetch first %d rows only /*?*/", selection.getMaxRows());
+//                StringBuilder sb = (new StringBuilder(sql.length() + soff.length() + slim.length())).append(sql);
+//
+//                if (LimitHelper.hasFirstRow(selection)) {
+//                    sb.append(soff);
+//                }
+//
+//                if (LimitHelper.hasMaxRows(selection)) {
+//                    sb.append(slim);
+//                }
+//
+//                return sb.toString();
+//            }
+//        };
+//    }
 
 }

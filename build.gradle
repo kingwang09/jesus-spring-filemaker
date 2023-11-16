@@ -26,6 +26,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.2'
+
 
 	//dev
 	compileOnly 'org.projectlombok:lombok'
@@ -33,7 +35,7 @@ dependencies {
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
 	//db
-	runtimeOnly files('libs/fmjdbc.jar')
+	implementation files('libs/fmjdbc.jar')
 //	runtimeOnly 'com.h2database:h2'
 //	runtimeOnly 'org.postgresql:postgresql'
 
@@ -41,6 +43,7 @@ dependencies {
 	testCompileOnly 'org.projectlombok:lombok'
 	testAnnotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.0.2'
 }
 
 tasks.named('bootBuildImage') {
