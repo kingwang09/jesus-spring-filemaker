@@ -1,6 +1,7 @@
 package org.jesus.jesusspring;
 
 import lombok.extern.slf4j.Slf4j;
+import org.jesus.jesusspring.filemaker.FileMakerRepository;
 import org.jesus.jesusspring.hello.entity.Hello;
 import org.jesus.jesusspring.hello.entity.HelloRepository;
 import org.junit.jupiter.api.Test;
@@ -16,6 +17,9 @@ class JesusSpringApplicationTests {
 	@Autowired
 	private HelloRepository helloRepository;
 
+	@Autowired
+	private FileMakerRepository fileMakerRepository;
+
 	@Test
 	void contextLoads() {
 
@@ -23,4 +27,13 @@ class JesusSpringApplicationTests {
 		log.debug("helloList: {}", helloList);
 	}
 
+	@Test
+	public void fileMakerRepositoryTest(){
+		fileMakerRepository.test();
+	}
+
+	@Test
+	public void setFileMakerRepositoryHelloListTest(){
+		log.info("results: {}", fileMakerRepository.selectHelloList());
+	}
 }

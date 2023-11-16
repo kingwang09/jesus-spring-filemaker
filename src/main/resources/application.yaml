@@ -24,7 +24,7 @@ spring:
     password: jesusinlove0611
   logging:
     level:
-      org.jesus.shop: DEBUG
+      org.jesus: DEBUG
       com.zaxxer.hikari: DEBUG
       org.springframework: INFO
       org.hibernate.SQL: DEBUG
